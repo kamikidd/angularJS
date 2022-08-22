@@ -4,6 +4,7 @@
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
     <style>
@@ -17,12 +18,13 @@
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="str">
+             class="form-control" ng-model="str"  ng-class="{'textbox_red': amount == 0,'textbox_green': amount >0}"
+              >
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="showMessage()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" ng-class="{'red': amount == 0,'green': amount >0}">
            <!-- Your message can go here. -->
           {{msg}}
          </div>
