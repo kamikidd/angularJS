@@ -60,7 +60,7 @@
                 var foundItems = [];
                 for (var i = 0; i < result.data['menu_items'].length; i++) {
                     var name = result.data['menu_items'][i]['description'];
-                    if (searchTerm.length > 0 && name.toLowerCase().indexOf(searchTerm) !== -1) {
+                    if (searchTerm.length > 0 && name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
                         foundItems.push(result.data['menu_items'][i]);
                     }
                 }
