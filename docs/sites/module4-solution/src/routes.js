@@ -12,7 +12,7 @@
         //Home
         .state('home',{
             url: '/',
-            templateUrl: '/src/menu/templates/home.html'
+            templateUrl: 'src/menu/templates/home.html'
         })
 
         //category page
