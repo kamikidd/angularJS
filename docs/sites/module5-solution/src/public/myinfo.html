@@ -1,0 +1,25 @@
+<div>
+    <div ng-show="myInfoCtrl.signedUp">
+        <h2 id="profil_title">Your Profil:</h2>
+        <div class="infolabel">First Name: <div class="info_content">{{myInfoCtrl.user.fname}}</div>
+        </div>
+        <div class="infolabel">Last Name: <div class="info_content">{{myInfoCtrl.user.lname}}</div>
+        </div>
+        <div class="infolabel">Email: <div class="info_content">{{myInfoCtrl.user.email}}</div>
+        </div>
+        <div class="infolabel">Phone: <div class="info_content">{{myInfoCtrl.user.phone}}</div>
+        </div>
+        <div class="infolabel"> Favorite Dish ID: <div class="info_content">{{myInfoCtrl.user.dish_sn}}</div>
+        </div>
+        <div class="infolabel">Favorite Dish Details: <div class="info_content">{{myInfoCtrl.user.dish_name}}</div>
+            <img class="img-responsive" ng-src="{{myInfoCtrl.apiPath}}/images/{{myInfoCtrl.user.dish_sn}}.jpg"
+                alt="{{myInfoCtrl.user.dish_name}}" />
+            <div class="info_content">{{myInfoCtrl.user.dish_detail}}</div>
+
+        </div>
+    </div>
+    <div id="nosign_msg" ng-hide="myInfoCtrl.signedUp">Not signed Up Yet.
+        <br>
+        <a ui-sref="public.signup">&#62; Sign up Now! &#60;</a>
+    </div>
+</div>

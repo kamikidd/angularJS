@@ -1,0 +1,50 @@
+<fieldset>
+    <legend>Signup for the newsletter ( Don't worry it will never come! ;D )
+    </legend>
+    <form name="regForm" novalidate>
+
+        <label for="fname">First Name: (*)</label>
+        <input type="text" id="fnanme" name="fname" placeholder="Your First Name" ng-model="signUpCtrl.user.fname"
+            required minlength="4" ng-maxlength="10">
+        <div ng-if="(regForm.fname.$error.minlength || regForm.fname.$error.required) && regForm.fname.$touched">First
+            name must be at least 2 characters long</div>
+        <div ng-if="regForm.fname.$error.maxlength && regForm.fname.$touched">First name must not be longer than 25
+            characters</div>
+        <br>
+
+
+        <label for="lname">Last Name: (*)</label>
+        <input type="text" id="lname" name="lname" placeholder="Your Last Name" ng-model="signUpCtrl.user.lname"
+            required minlength="4" ng-maxlength="10">
+        <div ng-if="(regForm.lname.$error.minlength || regForm.lname.$error.required) && regForm.lname.$touched">Last
+            name must be at least 4 characters long</div>
+        <div ng-if="regForm.lname.$error.maxlength && regForm.lname.$touched">Last name must not be longer than 10
+            characters</div>
+        <br>
+        <label for="email">Email Address: (*)</label>
+        <input type="email" id="email" name="email" placeholder="#@#" ng-model="signUpCtrl.user.email" required>
+        <div ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+        </div>
+        <br>
+        <label for="phone">Phone Number: (*)</label>
+        <input type="text" id="phone" name="phone" placeholder="###-###-####" ng-model="signUpCtrl.user.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})" required>
+        <div ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+        </div>
+        <br>
+        <label for="dish_sn">Favorite Dish: </label>
+        <input type="text" id="dish_sn" name="dish_sn" placeholder="The short name of the dish "
+        ng-model="signUpCtrl.user.dish_sn">
+        <div ng-if="signUpCtrl.errorMsg">No such menu number exists.</div>
+        <div ng-if="signUpCtrl.successMsg"> Your favorite dish is {{signUpCtrl.user.dish_name}}</div>
+        <br>
+        <div id="btnholder">
+            <button id="submit_btn" ng-disabled="regForm.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+            <div id= "msg_submited" ng-if="signUpCtrl.completed">Your information has been saved</div>
+        </div>
+
+
+    </form>
+</fieldset>
